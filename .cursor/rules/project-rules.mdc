@@ -1,0 +1,201 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# React Coding Challenge: Skip Select Page Redesign
+
+## Table of Contents
+
+- @1. Set Up Development Environment
+- @2. Analyze and Understand the Target Page
+- @3. Understand Data and API Integration
+- @4. Design Wireframes & Plan UI/UX
+- @5. Implement Basic Page Layout
+- @6. Integrate API Data Fetching
+- @7. Refactor Code for Maintainability and Reusability
+- @8. Add Interactivity & Final Features
+- @9. Test Responsiveness & Functionality
+- @10. Write Documentation and Final Touches
+- @11. Deploy to Sandbox
+- @12. Submit via GitHub and Sandbox Link
+
+---
+
+## 1. Set Up Development Environment
+
+
+1. **Install dependencies**:
+   - Install Tailwind CSS for styling:
+     ```bash
+     pnpm install -D tailwindcss postcss autoprefixer
+     pnpx dlx tailwindcss init
+     ```
+   - Add Axios or Fetch API to make requests:
+     ```bash
+     pnpm install axios
+     ```
+
+2. **Set up Tailwind CSS**:
+
+---
+
+## 2. Analyze and Understand the Target Page
+
+1. **Visit the provided website**:
+   - Go to @https://wewantwaste.co.uk/  using pupeteer MCP calling and enter the postcode `LE10 1SH`.
+   - Select an address and then choose 'Garden Waste'.
+   - Study the skip select page and identify the main UI components and layout.
+
+2. **Take notes on user interactions**:
+   - Observe the dropdowns, buttons, and dynamic data on the page.
+
+---
+
+## 3. Understand Data and API Integration
+
+1. **Review API Documentation**:
+   - Fetch skip data from @this API.
+   - Use the postcode `LE10 1SH` for fetching data.
+
+2. **Make a test API request**:
+   - Use Postman or Axios to understand the API response structure.
+
+3. **Plan how to integrate API**:
+   - Create a function in your app to fetch skip data on page load.
+
+---
+
+## 4. Design Wireframes & Plan UI/UX
+
+1. **Sketch wireframes**:
+   - Plan the layout for both mobile and desktop views.
+   - Create sections for skip options, selection buttons, and responsive behavior.
+
+2. **Identify UI elements**:
+   - Ensure accessibility, smooth transitions, and appropriate interactions (e.g., modals, tooltips).
+
+---
+
+## 5. Implement Basic Page Layout
+
+1. **Create React components**:
+   - Create components for header, skip selection, and skip options display.
+   - Implement a basic layout using Tailwind CSS for responsiveness.
+
+2. **Structure components**:
+   - `Header` - displays the title and instructions.
+   - `SkipSelect` - contains the skip options and selection logic.
+   - `SkipOption` - individual skip option card/component.
+
+3. **Ensure responsive design**:
+   - Use Tailwind CSS utility classes to ensure the page adjusts well on mobile and desktop.
+
+---
+
+## 6. Integrate API Data Fetching
+
+1. **Fetch skip options on page load**:
+   - Use `useEffect` to make an API call when the page loads:
+     ```js
+     import { useEffect, useState } from 'react';
+     import axios from 'axios';
+
+     const fetchSkipData = async () => {
+       try {
+         const response = await axios.get(
+           `https://app.wewantwaste.co.uk/api/skips/by-location?postcode=LE10 1SH&area=Lowestoft`
+         );
+         setSkipOptions(response.data);
+       } catch (error) {
+         console.error('Error fetching data', error);
+       }
+     };
+
+     useEffect(() => {
+       fetchSkipData();
+     }, []);
+     ```
+
+2. **Handle loading and error states**:
+   - Show a loading spinner while waiting for the data.
+   - Display an error message if the request fails.
+
+---
+
+## 7. Refactor Code for Maintainability and Reusability
+
+1. **Modularize components**:
+   - Split larger components into smaller, reusable ones.
+   - Example: Create a `SkipOption` component to render each skip.
+
+2. **Use React hooks**:
+   - Use `useState` for managing state and `useEffect` for side effects (API calls).
+
+3. **Maintain clean code**:
+   - Keep components small, focused, and easy to test.
+   - Use meaningful variable and function names.
+
+---
+
+## 8. Add Interactivity & Final Features
+
+1. **Skip selection**:
+   - Allow users to select a skip and confirm the choice.
+
+2. **Implement buttons**:
+   - Add a button to proceed with the selection (e.g., "Next").
+
+3. **Improve UI/UX**:
+   - Add hover effects, tooltips, or any interactive UI elements.
+
+---
+
+## 9. Test Responsiveness & Functionality
+
+1. **Test on multiple devices**:
+   - Use Chrome DevTools to test on different screen sizes (mobile, tablet, desktop).
+
+2. **Check all functionality**:
+   - Ensure that skip selection and API data fetching work smoothly.
+   - Test error handling, loading states, and edge cases.
+
+---
+
+## 10. Write Documentation and Final Touches
+
+1. **Create a README file**:
+   - Write a clear README that includes:
+     - Project setup instructions.
+     - Explanation of your design and development approach.
+     - How to run and test the project locally.
+
+2. **Final review**:
+   - Ensure the project is clean, organized, and works as expected.
+
+---
+
+## 11. Deploy to Sandbox
+
+1. **Deploy the app**:
+   - Deploy the project to a sandbox environment such as @CodeSandbox or @Vercel.
+
+2. **Verify deployment**:
+   - Test the deployed app to ensure everything is working as expected.
+
+---
+
+## 12. Submit via GitHub and Sandbox Link
+
+1. **Create a public GitHub repository**:
+   - Push your code to GitHub and ensure it's publicly accessible.
+
+2. **Submit the sandbox and GitHub links**:
+   - Submit the links via the provided form: @https://forms.gle/XEhv9gvkb8F83ttf6.
+
+---
+
+By following these steps, you should be able to complete the React coding challenge effectively within the given time frame. Ensure that your code is clean, maintainable, and well-documented before submission.
+
+
+
